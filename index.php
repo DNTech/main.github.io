@@ -1,3 +1,6 @@
+<?php
+	require("connect.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -380,7 +383,7 @@
                             <div class="col-md-6">
                                 <input type="text" class="form-control" required id="name" placeholder="Name">
                                 <input type="email" class="form-control" required id="email" placeholder="Email">
-                                <input type="text" class="form-control" required id="subject" placeholder="Subject">                                
+                                <input type="text" class="form-control" required id="website" placeholder="Website">                                
                             </div>
                             <div class="col-md-6">
                                 <textarea class="form-control" id="message" required rows="25" cols="10" placeholder="  Message Texts..."></textarea>
@@ -466,7 +469,7 @@
     <script src="js/owl.carousel.js"></script>
     <script src="js/wow.js"></script>
     <script src="js/script.js"></script>
-    <script src="js/dn.js"></script>
+    <script src="js/contact.js"></script>
 
 
 
