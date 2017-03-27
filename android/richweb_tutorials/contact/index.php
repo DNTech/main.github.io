@@ -20,5 +20,7 @@
 				mysqli_close($con);
 				echo("success");
 		}
+	}else{
+		echo("error");
 	}
 ?>
