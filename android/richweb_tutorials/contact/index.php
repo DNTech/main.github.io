@@ -1,5 +1,5 @@
 <?php
-	if( isset($_POST["pass"]) && isset($_POST["ip"]) && isset($_POST["name"]) && isset($_POST["topic"]) && isset($_POST["msg"]) ){
+	if( isset($_GET["pass"]) && isset($_GET["ip"]) && isset($_GET["name"]) && isset($_GET["topic"]) && isset($_GET["msg"]) ){
 		$dbh = "localhost";
 		$dbu = "1028185";
 		$dbp = "dc40f114f1f2f3f4";
@@ -7,10 +7,10 @@
 		if(!$con){
 			die("ERROR");
 		}else{
-			$nm = addSlashes($_POST["name"]);
-			$tp = addSlashes($_POST["topic"]);
-			$msg = addSlashes($_POST["msg"]);
-			$ip = addSlashes($_POST["ip"]);
+			$nm = addSlashes($_GET["name"]);
+			$tp = addSlashes($_GET["topic"]);
+			$msg = addSlashes($_GET["msg"]);
+			$ip = addSlashes($_GET["ip"]);
 			$query = "insert into rtutorials(name,topic,message,ip) values($nm,$tp,$msg,$ip);";
 			$rt = mysqli_query($con,$query);
 			if(!$rt){
