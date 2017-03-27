@@ -15,8 +15,7 @@
 			$query = "insert into rtutorials(name,topic,message,ip) values($nm,$tp,$msg,$ip);";
 			$rt = mysqli_query($con,$query);
 			if(!$rt){
-				mysqli_close($con);
-				die(mysqli_error());
+				echo(mysqli_error());
 			}else
 				mysqli_close($con);
 				echo("success");
