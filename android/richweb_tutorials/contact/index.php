@@ -1,5 +1,5 @@
 <?php
-	if(isset($_POST["pass"]) && isset($_POST["ip"]) isset($_POST["name"]) && isset($_POST["topic"]) && isset($_POST["msg"])){
+	if( isset($_POST["pass"]) && isset($_POST["ip"]) && isset($_POST["name"]) && isset($_POST["topic"]) && isset($_POST["msg"]) ){
 		$dbh = "localhost";
 		$dbu = "1028185";
 		$dbp = "dc40f114f1f2f3f4";
