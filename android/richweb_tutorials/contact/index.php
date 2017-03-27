@@ -18,9 +18,10 @@
 			$rt = mysqli_query($con,$query);
 			if(!$rt){
 				die("Error");
-			}else
+			}else{
 				mysqli_close($con);
 				echo("success");
+			}
 		}
 	}else{
 		echo("error");
