@@ -7,6 +7,7 @@
 		if(!$con){
 			die("ERROR");
 		}else{
+			mysqli_select_db($con,"1028185");
 			$nm = addSlashes($_GET["name"]);
 			$tp = addSlashes($_GET["topic"]);
 			$msg = addSlashes($_GET["msg"]);
