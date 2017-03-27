@@ -16,7 +16,7 @@
 			$rt = mysqli_query($con,$query);
 			if(!$rt){
 				mysqli_close($con);
-				die("error mysql");
+				die(mysqli_error());
 			}else
 				mysqli_close($con);
 				echo("success");
