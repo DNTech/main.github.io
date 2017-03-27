@@ -14,7 +14,7 @@
 			$ip = addSlashes($_GET["ip"]);
 			if(!$_GET["pass"]=="lacced")
 				die("error_p");
-			$query = "insert into rtutorials(name,topic,message,ip) values($nm,$tp,$msg,$ip);";
+			$query = "insert into rtutorials(name,topic,message,ip) values('$nm','$tp','$msg','$ip');";
 			$rt = mysqli_query($con,$query);
 			if(!$rt){
 				die(mysqli_error($con));
