@@ -1,0 +1,364 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+<!-- Basic -->
+<meta charset="utf-8">
+<title>Tcl/Tk Tutorial</title>
+<meta name="description" content="Tcl/Tk Tutorial for Beginners - Learn Tcl/Tk in simple and easy steps starting from basic to advanced concepts with examples including language, Overview, environment setup, program structure, basic syntax, variables, commands,data types, operators, decisions, loops, strings, arrays, lists, dictionary, procedures, packages, namespaces, file i/o, error handling, built-in functions, regular expressions, widgets, fonts, images, events, windows manager, geometry manager." />
+<meta name="keywords" content="Tcl, Tk, tutorial, beginner, language, Overview, environment, setup, program, structure, basic, syntax, variables, commands, data types, operators, decisions, loops, strings, arrays, lists, dictionary, procedures, packages, namespaces, file i/o, error handling, built-in functions, regular expressions, widgets, fonts, images, events, windows manager, geometry manager." />
+<base href="https://www.tutorialspoint.com/" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="fb:app_id" content="471319149685276" />
+<meta property="og:site_name" content="www.tutorialspoint.com" />
+<meta name="robots" content="index, follow"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="tutorialspoint.com">
+<script type="text/javascript" src="/theme/js/script-min-v4.js"></script>
+<link rel="stylesheet" href="/theme/css/style-min.css?v=2">
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+pre.prettyprint.tryit {min-height:37px; background: #eee url(/tcl-tk/images/try-it.jpg) top right no-repeat !important}select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #CD3300 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #CD3300 !important;}
+.submenu-item{ border-bottom: 2px solid #CD3300 !important; border-top: 2px solid #CD3300 !important }
+.ace_scroller{overflow: auto!important;}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+<body onload="prettyPrint()">
+<div class="wrapLoader">
+   <div class="imgLoader">
+      <img  src="/images/loading-cg.gif" alt="" width="70" height="70" />
+   </div>
+</div>
+<header>
+   <div class="container">			
+      <h1 class="logo">
+      <a href="index.htm" title="tutorialspoint">
+      <img alt="tutorialspoint" src="/tcl-tk/images/logo.png">
+      </a>
+      </h1>			
+      <nav>
+         <ul class="nav nav-pills nav-top">
+            <li><a href="/about/about_careers.htm" style="background: #fffb09; font-weight: bold;"><i class="icon icon-suitcase"></i> Jobs</a></li>
+            <li> <a href="http://www.sendfiles.net"><i class="fa fa-send"></i> &nbsp;SENDFiles</a> </li>
+            <li> <a href="https://www.tutorialspoint.com/whiteboard.htm"><img src="theme/css/icons/image-editor.png" alt="Whiteboard" title="Whiteboard"> &nbsp;Whiteboard</a> </li>
+            <li> <a href="https://www.tutorialspoint.com/netmeeting.php"><i class="fa-camera"></i> &nbsp;Net Meeting</a> </li>
+            <li> <a href="/online_dev_tools.htm"> <i class="dev-tools-menu" style="opacity:.5"></i> Tools </a> </li>
+            <li> <a href="/articles/index.php"><i class="icon icon-file-text-o"></i> &nbsp;Articles</a> </li>            
+            <li class="top-icons">
+              <ul class="social-icons">
+              <li class="facebook"><a href="https://www.facebook.com/tutorialspointindia" target="_blank" data-placement="bottom" title="tutorialspoint @ Facebook">Facebook</a></li>
+              <li class="googleplus"><a href="https://plus.google.com/u/0/116678774017490391259/posts" target="_blank" data-placement="bottom" title="tutorialspoint @ Google+">Google+</a></li>
+              <li class="twitter"><a href="https://www.twitter.com/tutorialspoint" target="_blank" data-placement="bottom" title="tutorialspoint @ Twitter">Twitter</a></li>
+              <li class="linkedin"><a href="https://www.linkedin.com/company/tutorialspoint" target="_blank" data-placement="bottom" title="tutorialspoint @ Linkedin">Linkedin</a></li>
+              <li class="youtube"><a href="https://www.youtube.com/channel/UCVLbzhxVTiTLiVKeGV7WEBg" target="_blank" data-placement="bottom" title="tutorialspoint YouTube">YouTube</a></li>
+              </ul>
+           </li>
+         </ul>
+      </nav>
+         <!-- search code here  --> 
+      <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull" style="top: 24px!important"> <i class="icon icon-bars"></i> </button>
+   </div>
+  
+   <div class="navbar nav-main">
+      <div class="container">
+         <nav class="nav-main mega-menu">
+            <ul class="nav nav-pills nav-main" id="mainMenu">
+               <li class="dropdown no-sub-menu"> <a class="dropdown" href="index.htm"><i class="icon icon-home"></i> Home</a> </li>   
+               <li class="dropdown" id="liTL"><a class="dropdown" href="javascript:void(0);"><span class="tut-lib"> Tutorials Library <i class="fa-caret-down"></i></span></a></li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="codingground.htm"><i class="fa-code"></i> Coding Ground </a> </li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="tutor_connect/index.php"><i class="fa-user"> </i> Tutor Connect</a></li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="videotutorials/index.htm"><i class="fa-toggle-right"></i> Videos </a></li>
+               <li class="dropdown no-sub-menu">
+                  <div class="searchform-popup">
+                     <input class="header-search-box" type="text" id="search-string" name="q" placeholder="Search your favorite tutorials..." onfocus="if (this.value == 'Search your favorite tutorials...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search your favorite tutorials...';}" autocomplete="off">
+                     <div class="magnifying-glass"><i class="icon-search"></i> Search </div>
+                 </div>
+               </li>
+            </ul>
+         </nav>
+         <div class="submenu-item sub-main-menu" id="top-sub-menu"></div>
+         
+      </div>
+   </div>	
+</header>
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+<div class="col-md-2">
+<aside class="sidebar">
+<div class="mini-logo">
+<img src="/tcl-tk/images/tcl-tk-mini-logo.jpg" alt="Tcl/Tk Tutorial" />
+</div>
+<ul class="nav nav-list primary left-menu">
+<li class="heading">Tcl Tutorial</li>
+<li><a  href="/tcl-tk/index.htm">Tcl - Home</a></li>
+<li><a  href="/tcl-tk/tcl_overview.htm">Tcl - Overview</a></li>
+<li><a  href="/tcl-tk/tcl_environment.htm">Tcl - Environment Setup</a></li>
+<li><a  href="/tcl-tk/tcl_special_variables.htm">Tcl - Special Variables</a></li>
+<li><a  href="/tcl-tk/tcl_basic_syntax.htm">Tcl - Basic Syntax</a></li>
+<li><a  href="/tcl-tk/tcl_commands.htm">Tcl - Commands</a></li>
+<li><a  href="/tcl-tk/tcl_data_types.htm">Tcl - Data Types</a></li>
+<li><a  href="/tcl-tk/tcl_variables.htm">Tcl - Variables</a></li>
+<li><a  href="/tcl-tk/tcl_operators.htm">Tcl - Operators</a></li>
+<li><a  href="/tcl-tk/tcl_decisions.htm">Tcl - Decisions</a></li>
+<li><a  href="/tcl-tk/tcl_loops.htm">Tcl - Loops</a></li>
+<li><a  href="/tcl-tk/tcl_arrays.htm">Tcl - Arrays</a></li>
+<li><a  href="/tcl-tk/tcl_strings.htm">Tcl - Strings</a></li>
+<li><a  href="/tcl-tk/tcl_lists.htm">Tcl - Lists</a></li>
+<li><a  href="/tcl-tk/tcl_dictionary.htm">Tcl - Dictionary</a></li>
+<li><a  href="/tcl-tk/tcl_procedures.htm">Tcl - Procedures</a></li>
+<li><a  href="/tcl-tk/tcl_packages.htm">Tcl - Packages</a></li>
+<li><a  href="/tcl-tk/tcl_namespaces.htm">Tcl - Namespaces</a></li>
+<li><a  href="/tcl-tk/tcl_file_io.htm">Tcl - File I/O</a></li>
+<li><a  href="/tcl-tk/tcl_error_handling.htm">Tcl - Error Handling</a></li>
+<li><a  href="/tcl-tk/tcl_builtin_functions.htm">Tcl - Built-in Functions</a></li>
+<li><a  href="/tcl-tk/tcl_regular_expressions.htm">Tcl - Regular Expressions</a></li>
+</ul>
+<ul class="nav nav-list primary left-menu">
+<li class="heading">Tk Tutorial</li>
+<li><a  href="/tcl-tk/tk_overview.htm">Tk - Overview</a></li>
+<li><a  href="/tcl-tk/tk_environment.htm">Tk - Environment</a></li>
+<li><a  href="/tcl-tk/tk_special_variables.htm">Tk - Special Variables</a></li>
+<li><a  href="/tcl-tk/tk_widgets_overview.htm">Tk - Widgets Overview</a></li>
+<li><a  href="/tcl-tk/tk_basic_widgets.htm">Tk - Basic Widgets</a></li>
+<li><a  href="/tcl-tk/tk_layout_widgets.htm">Tk - Layout Widgets</a></li>
+<li><a  href="/tcl-tk/tk_selection_widgets.htm">Tk - Selection Widgets</a></li>
+<li><a  href="/tcl-tk/tk_canvas_widgets.htm">Tk - Canvas Widgets</a></li>
+<li><a  href="/tcl-tk/tk_mega_widgets.htm">Tk - Mega Widgets</a></li>
+<li><a  href="/tcl-tk/tk_fonts.htm">Tk - Fonts</a></li>
+<li><a  href="/tcl-tk/tk_images.htm">Tk - Images</a></li>
+<li><a  href="/tcl-tk/tk_events.htm">Tk - Events</a></li>
+<li><a  href="/tcl-tk/tk_windows_manager.htm">Tk - Windows Manager</a></li>
+<li><a  href="/tcl-tk/tk_geometry_manager.htm">Tk - Geometry Manager</a></li>
+</ul>
+<ul class="nav nav-list primary left-menu">
+<li class="heading">Tcl/Tk Useful Resources</li>
+<li><a  href="/tcl-tk/tcl_tk_quick_guide.htm">Tcl/Tk - Quick Guide</a></li>
+<li><a  href="/tcl-tk/tcl_tk_useful_resources.htm">Tcl/Tk - Useful Resources</a></li>
+<li><a  href="/tcl-tk/tcl_tk_discussion.htm">Tcl/Tk - Discussion</a></li>
+</ul>
+<ul class="nav nav-list primary push-bottom left-menu special">
+<li class="sreading">Selected Reading</li>
+<li><a target="_top" href="/developers_best_practices/index.htm">Developer's Best Practices</a></li>
+<li><a target="_top" href="/questions_and_answers.htm">Questions and Answers</a></li>
+<li><a target="_top" href="/effective_resume_writing.htm">Effective Resume Writing</a></li>
+<li><a target="_top" href="/hr_interview_questions/index.htm">HR Interview Questions</a></li>
+<li><a target="_top" href="/computer_glossary.htm">Computer Glossary</a></li>
+<li><a target="_top" href="/computer_whoiswho.htm">Who is Who</a></li>
+</ul>
+</aside>
+</div>
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+<div class="col-md-7 middle-col">
+<div class="cover">
+<img class="img-responsive" src="/tcl-tk/images/tcl-tk.jpg" alt="Tcl/Tk Tutorial" />
+</div>
+<hr />
+<div class="pre-btn">
+<a href="/index.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> Previous Page</a>
+</div>
+<div class="nxt-btn">
+<a href="/tcl-tk/tcl_overview.htm">Next Page <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+</div>
+<div class="clearer"></div>
+<hr />
+<h1>Tcl/Tk Tutorial</h1>
+<div class="center-aligned tutorial-menu">
+<form action="/job_search.php" method="POST">
+<input type="hidden" name="search_string" value="Tcl/Tk" />
+<button type="button" class="btn btn-default btn-sm btn-buy-tutorial"><i class="icon  icon-file-pdf-o"></i><a href="/tcl-tk/tcl_tk_pdf_version.htm"> PDF Version</a></button>
+<button type="button" class="btn btn-default btn-sm btn-quick-guide"><i class="icon  icon-book"></i><a href="/tcl-tk/tcl_tk_quick_guide.htm"> Quick Guide</a></button>
+<button type="button" class="btn btn-default btn-sm btn-extra-links"><i class="icon  icon-external-link"></i><a href="/tcl-tk/tcl_tk_useful_resources.htm"> Resources</a></button>
+<button type="submit" class="btn btn-default btn-sm btn-job-search"><i class="icon  icon-suitcase"></i> Job Search</button>
+<button type="button" class="btn btn-default btn-sm btn-job-search"><i class="fa  fa-wechat"></i> <a href="/tcl-tk/tcl_tk_discussion.htm"> Discussion</a></button>
+</form>
+</div>
+<p>Tcl is a general purpose multi-paradigm system programming language. It is a scripting language that aims at providing the ability for applications to communicate with each other.</p>
+<p>On the other hand, Tk is a cross platform widget toolkit used for building GUI in many languages.</p>
+<p>This tutorial covers various topics ranging from the basics of the Tcl/Tk to its scope in various applications.</p>
+<h1>Audience</h1>
+<p>This tutorial is designed for all those individuals who are looking for a starting point of learning Tcl/Tk. Therefore, we cover all those topics that are required for a beginner and an advanced user.</p>
+<h1>Prerequisites</h1>
+<p>Before proceeding with this tutorial, it is advisable for you to understand the basic concepts of computer programming. This tutorial is self-contained and you will be able to learn various concepts of Tcl/Tk even if you are a beginner. You just need to have a basic understanding of working with a simple text editor and command line.</p>
+<h1>Execute Tcl/Tk Online</h1>
+<p>For most of the examples given in this tutorial you will find Try it option, so just make use of this option to execute your Tcl/Tk programs at the spot and enjoy your learning.</p>
+<p>Try following example using Try it option available at the top right corner of the below sample code box &minus;</p>
+<pre class="prettyprint notranslate tryit">
+puts "Hello World!" 
+<p></p>
+</pre>
+<hr />
+<div class="pre-btn">
+<a href="/index.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> Previous Page</a>
+</div>
+<div class="print-btn">
+<a href="/cgi-bin/printpage.cgi" target="_blank"><i class="icon icon-print big-font"></i> Print</a>
+</div>
+<div class="nxt-btn">
+<a href="/tcl-tk/tcl_overview.htm">Next Page <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+</div>
+<hr />
+<!-- PRINTING ENDS HERE -->
+<div class="bottomgooglead">
+<div class="bottomadtag">Advertisements</div>
+<script type="text/javascript"><!--
+var width = 580;
+var height = 400;
+var format = "580x400_as";
+if( window.innerWidth < 468 ){
+   width = 300;
+   height = 250;
+   format = "300x250_as";
+}
+google_ad_client = "pub-7133395778201029";
+google_ad_width = width;
+google_ad_height = height;
+google_ad_format = format;
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-3" id="rightbar">
+<div class="simple-ad">
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://www.facebook.com/sharer.php?u=' + 'http://www.tutorialspoint.com/tcl-tk/','sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/facebookIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://twitter.com/share?url=' + 'http://www.tutorialspoint.com/tcl-tk/','sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/twitterIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://www.linkedin.com/cws/share?url=' + 'http://www.tutorialspoint.com/tcl-tk/&amp;title='+ document.title,'sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/linkedinIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://plus.google.com/share?url=http://www.tutorialspoint.com/tcl-tk/','sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/googlePlusIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://www.stumbleupon.com/submit?url=http://www.tutorialspoint.com/tcl-tk/&amp;title='+ document.title,'sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/StumbleUponIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://reddit.com/submit?url=http://www.tutorialspoint.com/tcl-tk/&amp;title='+ document.title,'sharer','toolbar=0,status=0,width=626,height=656,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/reddit.jpg" alt="img" />
+</a>
+</div>
+<div class="rightgooglead">
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 300;
+google_ad_height = 250;
+google_ad_format = "300x250_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<div class="rightgooglead">
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 300;
+google_ad_height = 600;
+google_ad_format = "300x600_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<div class="rightgooglead">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-2537027957187252";
+/* Right Side Ad */
+google_ad_slot = "right_side_ad";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer-copyright">
+<div class="container">
+<div class="row">
+<div class="col-md-1">
+<a href="index.htm" class="logo"> <img alt="Tutorials Point" class="img-responsive" src="/scripts/img/logo-footer.png"> </a>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12">
+   <nav id="sub-menu">
+      <ul>
+         <li><a href="/about/tutorials_writing.htm">Write for us</a></li>
+         <li><a href="/about/faq.htm">FAQ's</a></li>
+         <li><a href="/about/about_helping.htm">Helping</a></li>
+         <li><a href="/about/contact_us.htm">Contact</a></li>
+      </ul>
+   </nav>
+</div>
+<div class="col-md-3 col-sm-12 col-xs-12">
+<p>&copy; Copyright 2017. All Rights Reserved.</p>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12">
+   <div class="news-group">
+      <input type="text" class="form-control-foot search" name="textemail" id="textemail" autocomplete="off" placeholder="Enter email for newsletter" onfocus="if (this.value == 'Enter email for newsletter...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Enter email for newsletter...';}">
+      <span class="input-group-btn"> <button class="btn btn-default btn-footer" id="btnemail" type="submit" onclick="javascript:void(0);">go</button> </span>
+      <div id="newsresponse"></div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Libs -->
+<script type="text/javascript" src="/theme/js/custom-min.js?v=4"></script>
+<script src="https://www.google-analytics.com/urchin.js">
+</script>
+<script type="text/javascript">
+_uacct = "UA-232293-6";
+urchinTracker();
+$('.pg-icon').click(function(){
+   $('.wrapLoader').show();
+});
+</script>
+<script type="text/javascript" src="/theme/js/jquery.colorbox-min.js"></script>
+<script type="text/javascript">
+   var tryit = new $.TryIt('/tcl-tk/try_tcl_tk.php');
+   tryit.compile();
+</script></div>
+</body>
+</html>
