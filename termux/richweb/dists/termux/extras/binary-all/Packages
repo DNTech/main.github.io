@@ -1,0 +1,10 @@
+Package: RICHWEB
+Version: 1.0
+Architecture: all
+Maintainer: @richweb
+Description: Developer @ RICHWEB
+Homepage: http://richweb.in
+Depends: python
+Filename: dists/termux/extras/binary-all/richweb.deb
+Size: 800
+SHA256: 528d05ccd369ad7cccf04930fa773e925cdaa385c8f2b010bcd9a9ade69e97ce
